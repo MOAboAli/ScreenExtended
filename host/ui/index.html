@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScreenExtended Host</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <h1>ScreenExtended</h1>
+          <p class="tag">Windows host · stream a display to your Mac</p>
+        </div>
+      </div>
+      <div class="status-pill" id="statusPill">Idle</div>
+    </header>
+
+    <section class="panel">
+      <h2>1. Choose the screen to extend</h2>
+      <p class="hint">
+        Pick the Windows display that should appear on the Mac. For a true secondary desktop,
+        create/extend onto a virtual or spare monitor, then select that monitor here.
+      </p>
+      <div class="source-grid" id="sourceGrid"></div>
+    </section>
+
+    <section class="panel dual">
+      <div>
+        <h2>2. Connect from the Mac</h2>
+        <p class="hint">On the old Mac, open Safari/Chrome and go to one of these URLs (same Wi‑Fi/LAN):</p>
+        <ul class="urls" id="urlList"></ul>
+        <div class="row">
+          <button type="button" class="ghost" id="btnRefresh">Refresh sources</button>
+          <button type="button" class="ghost" id="btnLocalViewer">Open viewer here</button>
+        </div>
+      </div>
+      <div>
+        <h2>3. Start stream</h2>
+        <p class="hint">
+          Choose what to send. Audio is <strong>duplicated</strong> system speakers
+          (loopback — Windows keeps playing locally). You can turn either off anytime.
+        </p>
+        <div class="stream-opts" role="group" aria-label="Stream options">
+          <label class="toggle">
+            <input type="checkbox" id="optVideo" checked />
+            <span>Stream video</span>
+          </label>
+          <label class="toggle">
+            <input type="checkbox" id="optAudio" checked />
+            <span>Stream audio</span>
+          </label>
+        </div>
+        <div class="row">
+          <button type="button" class="primary" id="btnStart" disabled>Start streaming</button>
+          <button type="button" class="danger" id="btnStop" disabled>Stop</button>
+        </div>
+        <p class="meta" id="metaLine">No viewer connected yet.</p>
+      </div>
+    </section>
+
+    <section class="panel preview-panel">
+      <h2>Local preview</h2>
+      <video id="preview" autoplay muted playsinline></video>
+    </section>
+  </div>
+  <script src="host.js"></script>
+</body>
+</html>

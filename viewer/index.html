@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScreenExtended Viewer</title>
+  <link rel="stylesheet" href="viewer.css" />
+</head>
+<body>
+  <div id="boot">
+    <div class="card">
+      <h1>ScreenExtended</h1>
+      <p>Connecting to the Windows host…</p>
+      <p class="sub" id="bootDetail">Open this page from the URL shown on the Windows app.</p>
+      <button type="button" id="btnFs">Enter fullscreen</button>
+    </div>
+  </div>
+  <video id="remote" autoplay playsinline></video>
+  <div id="hud">Click to capture mouse/keyboard · Esc exits fullscreen</div>
+  <script src="viewer.js"></script>
+</body>
+</html>

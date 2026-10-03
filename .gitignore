@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+DesktopApp/node_modules/
+
+# Build output
+dist/
+DesktopApp/dist/
+*.exe
+!DesktopApp/vendor/**/*.exe
+
+# Logs / OS
+*.log
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local env / secrets
+.env
+.env.*
+*.pem
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+
+# Electron / packing leftovers
+*.asar
+out/
+
+# Large VDD archives (keep unpacked driver files used by the app)
+DesktopApp/vendor/vdd/**/*.zip
+DesktopApp/vendor/vdd/**/*.pdb
+DesktopApp/vendor/vdd/control/*.exe
+!DesktopApp/vendor/vdd/control/Dependencies/devcon.exe
+
+# Local driver workdir copies (created on the machine at runtime)
+# C:\VirtualDisplayDriver is outside the repo

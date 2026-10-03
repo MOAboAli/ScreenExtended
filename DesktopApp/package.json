@@ -1,0 +1,64 @@
+{
+  "name": "screenextended-host",
+  "productName": "ScreenExtended Host",
+  "version": "1.0.0",
+  "description": "Windows desktop host — stream a display + duplicated audio to a Mac viewer",
+  "main": "main.js",
+  "author": "ScreenExtended",
+  "license": "MIT",
+  "type": "commonjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node scripts/full-test.js",
+    "dist": "electron-builder --win dir",
+    "dist:dir": "electron-builder --win dir"
+  },
+  "dependencies": {
+    "express": "^4.21.1",
+    "koffi": "^2.9.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.screenextended.host",
+    "productName": "ScreenExtended Host",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "input.js",
+      "virtualDisplay.js",
+      "ui/**/*",
+      "viewer/**/*",
+      "scripts/**/*",
+      "vendor/vdd/driver/**/*",
+      "vendor/vdd/control/Dependencies/devcon.exe",
+      "package.json",
+      "!vendor/vdd/**/*.zip",
+      "!vendor/vdd/**/*.pdb",
+      "!vendor/vdd/control/*.exe"
+    ],
+    "asarUnpack": [
+      "vendor/vdd/**/*",
+      "virtualDisplay.js"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "dir",
+          "arch": ["x64"]
+        }
+      ],
+      "signAndEditExecutable": false
+    }
+  },
+  "allowScripts": {
+    "electron@33.4.11": true,
+    "koffi@2.16.3": true
+  }
+}

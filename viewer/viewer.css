@@ -1,0 +1,90 @@
+:root {
+  --bg: #05070a;
+  --text: #eaf3fa;
+  --muted: #9db0c0;
+  --accent: #3db8a8;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow: hidden;
+}
+
+#remote {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+  outline: none;
+}
+
+#boot {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(800px 420px at 50% 0%, rgba(61, 184, 168, 0.2), transparent 60%),
+    var(--bg);
+  z-index: 5;
+}
+
+#boot.hidden { display: none; }
+
+.card {
+  width: min(440px, calc(100vw - 32px));
+  padding: 28px 26px;
+  border-radius: 18px;
+  background: rgba(18, 26, 34, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  text-align: center;
+}
+
+.card h1 {
+  margin: 0 0 10px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+}
+
+.card p { margin: 0 0 8px; color: var(--muted); line-height: 1.45; }
+.card .sub { font-size: 0.9rem; }
+
+#btnFs {
+  margin-top: 14px;
+  border: 0;
+  border-radius: 12px;
+  padding: 11px 16px;
+  background: linear-gradient(180deg, #47c7b6, #2f9e93);
+  color: #06201c;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+#hud {
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: var(--muted);
+  font-size: 0.8rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 4;
+}
+
+body.show-hud #hud { opacity: 1; }

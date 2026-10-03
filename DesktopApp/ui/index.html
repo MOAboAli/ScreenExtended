@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScreenExtended Host</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <h1>ScreenExtended</h1>
+          <p class="tag">One virtual secondary screen per connected viewer</p>
+        </div>
+      </div>
+      <div class="status-pill" id="statusPill">Idle</div>
+    </header>
+
+    <section class="panel">
+      <h2>How it works</h2>
+      <p class="hint">
+        When a viewer connects, Windows gets <strong>exactly one</strong> new virtual screen.
+        When that viewer disconnects (or reconnects), the screen is removed and a fresh one is created.
+        Max: <strong>1 screen / 1 client</strong>.
+      </p>
+      <p class="meta" id="virtualMeta">Waiting for a viewer to connect…</p>
+      <div class="remote-card" id="remoteCard" hidden>
+        <img id="remoteThumb" alt="" />
+        <div>
+          <strong id="remoteTitle">Remote virtual screen</strong>
+          <small id="remoteDetails"></small>
+        </div>
+      </div>
+      <div class="row">
+        <button type="button" class="ghost" id="btnInstallDriver">Install virtual display driver</button>
+      </div>
+    </section>
+
+    <section class="panel dual">
+      <div>
+        <h2>1. Connect the other laptop</h2>
+        <p class="hint">On the other laptop browser (same Wi‑Fi), open:</p>
+        <ul class="urls" id="urlList"></ul>
+        <div class="row">
+          <button type="button" class="ghost" id="btnLocalViewer">Open viewer here</button>
+        </div>
+        <p class="hint warn">
+          If it cannot connect, run <strong>scripts\Fix-Firewall.bat</strong> as Administrator.
+        </p>
+      </div>
+      <div>
+        <h2>2. Stream</h2>
+        <p class="hint">Starts automatically when the viewer connects (virtual screen + optional audio).</p>
+        <div class="stream-opts" role="group" aria-label="Stream options">
+          <label class="toggle">
+            <input type="checkbox" id="optVideo" checked />
+            <span>Stream video</span>
+          </label>
+          <label class="toggle">
+            <input type="checkbox" id="optAudio" checked />
+            <span>Stream audio</span>
+          </label>
+        </div>
+        <div class="row">
+          <button type="button" class="primary" id="btnStart" disabled>Start streaming</button>
+          <button type="button" class="danger" id="btnStop" disabled>Stop</button>
+        </div>
+        <p class="meta" id="metaLine">No viewer connected yet.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>App options</h2>
+      <label class="toggle">
+        <input type="checkbox" id="optAutoStart" checked />
+        <span>Start with Windows (after restart / login)</span>
+      </label>
+    </section>
+
+    <section class="panel preview-panel">
+      <h2>Local preview (virtual screen)</h2>
+      <video id="preview" autoplay muted playsinline></video>
+    </section>
+  </div>
+  <script src="host.js"></script>
+</body>
+</html>

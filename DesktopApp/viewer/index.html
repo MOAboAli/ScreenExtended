@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScreenExtended Viewer</title>
+  <link rel="stylesheet" href="viewer.css" />
+</head>
+<body>
+  <div id="boot">
+    <div class="card">
+      <h1>ScreenExtended</h1>
+      <p id="bootTitle">Connecting to the Windows host…</p>
+      <p class="sub" id="bootDetail">Open this page from the URL shown on the Windows app (do not open a saved HTML file).</p>
+      <ol class="steps" id="bootSteps">
+        <li>Same Wi‑Fi/LAN as the Windows PC</li>
+        <li>Use <code>http://&lt;windows-ip&gt;:4789/viewer/</code></li>
+        <li>On Windows: select a screen, then Start streaming (or tap below)</li>
+      </ol>
+      <div class="btn-row">
+        <button type="button" id="btnRequest" disabled>Start stream from host</button>
+        <button type="button" id="btnFs">Enter fullscreen</button>
+        <button type="button" id="btnRetry" class="ghost">Retry connect</button>
+      </div>
+    </div>
+  </div>
+  <video id="remote" autoplay playsinline></video>
+  <div id="hud">Click to capture mouse/keyboard · Esc exits fullscreen</div>
+  <script src="viewer.js"></script>
+</body>
+</html>
